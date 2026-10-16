@@ -1,0 +1,5 @@
+/home/gic-borin-powiney/oslab-work/lab1/task2_files
+bridge.txt
+garden.txt
+This is file FILE1
+This is file FILE2
