@@ -1,0 +1,2 @@
+/opt/homebrew/bin/mc
+lrwxr-xr-x@ 1 borinpowiney  admin  35 Oct 21 10:09 /opt/homebrew/opt/midnight-commander -> ../Cellar/midnight-commander/4.8.33
