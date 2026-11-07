@@ -1,0 +1,1 @@
+The first pattern matched tiger1.txt and tiger2.txt, while the second pattern matched any file starting with tiger followed by a non-1 character and anything after.

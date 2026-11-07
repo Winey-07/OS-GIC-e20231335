@@ -1,0 +1,4 @@
+- What link count do the remaining names show after each rm?
+After removing one.txt, the link count dropped from 3 to 2.
+- After you delete one.txt, is the data gone? When would it be gone?
+No, the data is not gone because two.txt and three.txt still point to the same inode. The data is only deleted when all links (link count reaches 0) are removed.
