@@ -1,0 +1,16 @@
+ 1036  clang -Wall -Wextra -o threads threads.c -pthread
+ 1037  ./threads | tee result_threads.txt
+ 1038  clang -Wall -Wextra -o threads_mutex threads_mutex.c -pthread\n./threads_mutex | tee result_threads_mutex.txt
+ 1039  history | tail -n 20 > command_used_threads.txt
+ 1040  cd ../task3_java
+ 1041  cd ../task2_threads\nclang -Wall -Wextra -o threads threads.c -pthread\n./threads | tee result_threads.txt
+ 1042  clang -Wall -Wextra -o threads_mutex threads_mutex.c -pthread\n./threads_mutex | tee result_threads_mutex.txt
+ 1043  clang -Wall -Wextra -o threads_mutex threads_mutex.c -pthread\n./threads_mutex | tee result_threads_mutex.txt
+ 1044  fc -ln -20 > command_used_threads.txt
+ 1045  cd ../task3_java
+ 1046  javac ThreadDemo.java\njava ThreadDemo | tee result_thread_demo.txt
+ 1047  javac RunnableDemo.java\njava RunnableDemo | tee result_runnable_demo.txt
+ 1048  javac PoolDemo.java\njava PoolDemo | tee result_pool_demo.txt
+ 1049  javac PoolDemo.java
+ 1050  java PoolDemo > result_pool_demo.txt 2>&1
+ 1051  cat result_pool_demo.txt
