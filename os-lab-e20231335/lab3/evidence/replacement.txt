@@ -1,0 +1,9 @@
+
+=== NEW FILE USING THE OLD NAME ===
+18874735 -rw-rw-r-- 2 gic-borin-powiney gic-borin-powiney 12 Nov  7 17:19 tiger-hard.txt
+18874735 -rw-rw-r-- 2 gic-borin-powiney gic-borin-powiney 12 Nov  7 17:19 tiger-saved.txt
+18874754 lrwxrwxrwx 1 gic-borin-powiney gic-borin-powiney  9 Nov  7 17:19 tiger-soft.txt -> tiger.txt
+18874760 -rw-rw-r-- 1 gic-borin-powiney gic-borin-powiney 12 Nov  7 17:19 tiger.txt
+tiger.txt: version 724
+hard: version 646
+soft: version 724

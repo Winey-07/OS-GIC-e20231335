@@ -1,0 +1,4 @@
+mv -- "sales north.txt" ../reports/
+mv -- "$OSLAB_WORKSPACE/lab2/incoming/audit notes.txt" "$OSLAB_WORKSPACE/lab2/reports/"
+Error: cat: 'reports/sales north.txt': No such file or directory
+Fix: ../../reports/sales north.txt

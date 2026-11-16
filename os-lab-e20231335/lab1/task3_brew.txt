@@ -1,0 +1,1 @@
+ls: /opt/homebrew/etc/mc: No such file or directory

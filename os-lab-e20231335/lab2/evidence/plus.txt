@@ -1,0 +1,3 @@
+command: mv -- "../a/b/lost file.txt" found.txt (run from mess/c)
+command: cp -- "../../c/found.txt" ../../../TechCorp/Legal/ (run from mess/a/b)
+Number of .. needed: 3
