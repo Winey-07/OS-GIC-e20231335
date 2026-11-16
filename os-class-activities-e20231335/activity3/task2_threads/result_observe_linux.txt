@@ -1,0 +1,24 @@
+{
+  echo "=== Program output ==="
+  cat threads_observe_output.txt
+
+  echo
+  echo "=== Program threads: PID, LWP, NLWP, PSR ==="
+  ps -L -o pid,lwp,nlwp,psr,stat,comm -p "$PID"
+
+  echo
+  echo "=== /proc thread directories ==="
+  ls "/proc/$PID/task/"
+
+  echo
+  echo "=== Process status ==="
+  grep -E 'Name|State|Threads' "/proc/$PID/status"
+
+  echo
+  echo "=== kthreadd (normally PID 2) ==="
+  ps -o pid,ppid,psr,comm -p 2
+
+  echo
+  echo "=== Kernel threads whose parent is PID 2 ==="
+  ps --ppid 2 -o pid,ppid,psr,comm | head -15
+} > result_observe_linux.txt
