@@ -1,0 +1,16 @@
+ 1017  ./server > result_server.txt 2>&1 &server_pid=$!
+ 1018  ./server > result_server.txt 2>&1 &\nserver_pid=$!\nsleep 1\n./client > result_client.txt 2>&1\nwait "$server_pid"\ncat result_server.txt result_client.txt > result_socket.txt
+ 1019  ./server > result_server.txt 2>&1 &\nserver_pid=$!\nsleep 1
+ 1020  ./client > result_client.txt 2>&1\nwait "$server_pid"\ncat result_server.txt result_client.txt > result_socket.txt
+ 1021  ./server > result_server.txt 2>&1 &
+ 1022  ./client > result_client.txt 2>&1\nwait "$server_pid"\ncat result_server.txt result_client.txt > result_socket.txt
+ 1023  ./server > result_server.txt 2>&1 & sleep 1
+ 1024  ./server
+ 1025  ./server
+ 1026  clear
+ 1027  cd ..
+ 1028  mkdir -p  task2_threads/{threads.c,threads_mutex.c}
+ 1029  cd task1_socket
+ 1030  $ ./server > result_server.txt 2>&1 &\n$ sleep 1\n$ ./client > result_client.txt 2>&1\n$ wait\n$ cat result_server.txt result_client.txt > result_socket.txt
+ 1031  $ history | tail -n 20 > command_used_socket.txt
+ 1032  ./server > result_server.txt 2>&1 &\nserver_pid=$!\nsleep 1\n./client > result_client.txt 2>&1\nwait "$server_pid"\ncat result_server.txt result_client.txt > result_socket.txt

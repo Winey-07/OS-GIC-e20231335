@@ -1,0 +1,2 @@
+zsh: no such file or directory: ./server
+zsh: exec format error: ./client
