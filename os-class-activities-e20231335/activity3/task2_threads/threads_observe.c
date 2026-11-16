@@ -1,26 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
 
 #define NUM_THREADS 4
 
-void *worker(void *arg) {
+static void *worker(void *arg)
+{
     int id = *(int *)arg;
 
-    printf("Thread %d (TID: %lu): sleeping 60 seconds...\n",
-           id, (unsigned long)pthread_self());
-
+    printf("Thread %d: sleeping for 60 seconds...\n", id);
     sleep(60);
-
     printf("Thread %d: done.\n", id);
+
     return NULL;
 }
 
-int main(void) {
+int main(void)
+{
     pthread_t threads[NUM_THREADS];
     int ids[NUM_THREADS];
 
-    printf("PID: %d — observe threads now!\n\n", getpid());
+    printf("PID: %d — observe the threads now!\n", getpid());
     fflush(stdout);
 
     for (int i = 0; i < NUM_THREADS; i++) {
@@ -28,16 +29,14 @@ int main(void) {
 
         int error = pthread_create(&threads[i], NULL, worker, &ids[i]);
         if (error != 0) {
-            fprintf(stderr, "pthread_create failed for thread %d (error %d)\n",
-                    i + 1, error);
-            return 1;
+            fprintf(stderr, "pthread_create failed: %d\n", error);
+            return EXIT_FAILURE;
         }
     }
 
     for (int i = 0; i < NUM_THREADS; i++) {
         pthread_join(threads[i], NULL);
     }
-    
 
-    return 0;
+    return EXIT_SUCCESS;
 }
