@@ -1,0 +1,3 @@
+Parent process PID: 9348
+Creating child process (mspaint.exe)...
+CreateProcess failed. Error: 2
