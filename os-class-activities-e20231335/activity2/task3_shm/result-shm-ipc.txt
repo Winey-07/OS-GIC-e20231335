@@ -1,0 +1,3 @@
+Consumer: reading from shared memory 'OS-powiney'
+Consumer: message = "Hello, Powineythis is shared memory IPC!"
+Consumer: shared memory unlinked.

@@ -1,0 +1,10 @@
+total 80
+drwxr-xr-x@ 5 borinpowiney  staff    160 Nov 20 19:42 .
+drwxr-xr-x@ 7 borinpowiney  staff    224 Nov 20 19:03 ..
+-rwxr-xr-x@ 1 borinpowiney  staff  33784 Nov 20 19:35 forkchild
+-rw-r--r--@ 1 borinpowiney  staff   2620 Nov 20 19:34 forkchild.c
+-rw-r--r--@ 1 borinpowiney  staff      0 Nov 20 19:42 result_forkchid.txt
+Parent process (PID: 51099) — creating child...
+Parent: waiting for child (PID: 51103) to finish...
+Parent: child exited with status 0
+Parent: done.

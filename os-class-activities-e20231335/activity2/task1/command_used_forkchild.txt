@@ -1,0 +1,16 @@
+ 1007  cd task1
+ 1008  nano forkchild.c
+ 1009  gcc -Wall -Wextra -o forkchild forkchild.c
+ 1010  ls
+ 1011  ./forkchild > result_forkchid.txt 2>&1
+ 1012  cat result_forkchild.txt
+ 1013  ls
+ 1014  mv result_forkchid.txt result_forkchild.txt
+ 1015  ls
+ 1016  cat result_forkchild.txt
+ 1017  ps -axo pid,ppid,command
+ 1018  mkdir README.md
+ 1019  touch README.md
+ 1020  ps -axo pid,ppid,command | grep forkchild
+ 1021  ps -axo pid,ppid,command | grep forkchild
+ 1022  ./forkchild
