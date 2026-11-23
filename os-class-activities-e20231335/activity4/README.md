@@ -4,8 +4,8 @@
 - **Student ID:** e20231335
 - **Partner Name:** Ly Nyheang
 - **Partner Student ID:** e20230906
-- **Server Machine Owner:** [Your Name or Partner Name]
-- **Server IP Address:** 192.168.71.175
+- **Server Machine Owner:** Ly Nyheang
+- **Server IP Address:** 172.0.0.1
 
 ---
 
@@ -13,9 +13,9 @@
 
 ![C++ before mutex](screenshots/cpp_before_mutex.png)
 
-- Expected score after 20 total client requests:
-- Actual score:
-- What happened:
+- Expected score after 20 total client requests: 20
+- Actual score: 1
+- What happened: Because the code is in cpp_before (before synchronization/locking was added) and all ./client processes ran concurrently in the background (&), multiple requests read the same initial score (0) at the same time, added 1 to get 1, and overwrote each other's updates (race condition / lost updates). As a result, all increments collapsed into a single update of 1 instead of accumulating cleanly.
 
 ---
 
@@ -72,4 +72,10 @@
 
 ## Reflection
 
-_Compare the C++ and Java synchronization approaches. What did this activity teach you about protecting shared resources?_
+This activity demonstrated the difference between C++ std::mutex and Java synchronized, while showing that both provide mutual exclusion for a shared resource. C++ required a mutex and std::lock_guard to protect the complete read–delay–increment–write operation. Java used a synchronized instance method to ensure that only one thread could execute updateScore at a time.
+
+The tests showed that sharing a file introduces a race condition even when all requests are handled through one server. A thread could read the same score, be delayed, and then write an overwritten value. Although the unsafe versions did not always lose updates, the synchronization prevented this issue consistently.
+
+This activity taught me that synchronization must protect the entire critical section, not just the file write. Without a server, concurrent clients could update the file directly. With a server, the file is controlled centrally, but every client still creates a separate server thread that may access the file simultaneously. Both C++ and Java solutions ensured that updates occurred in a correct, one-at-a-time order.
+
+Overall, I learned that synchronization is necessary whenever multiple threads share data or resources. Even small operations such as reading and incrementing a score can cause incorrect results if they are not protected as a complete critical section.
