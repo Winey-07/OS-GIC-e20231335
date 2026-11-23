@@ -7,7 +7,7 @@ const int PORT = 9002;
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cout << "Usage: ./client 192.168.71.175  Powiney" << std::endl;
+        std::cout << "Usage: ./client 192.168.71.175 Powiney" << std::endl;
         return 1;
     }
 
