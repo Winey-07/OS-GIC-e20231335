@@ -7,7 +7,7 @@ const int PORT = 9001;
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cout << "Usage: ./client <server_ip> <student_name>" << std::endl;
+        std::cout << "Usage: ./client 192.168.71.175  Powiney" << std::endl;
         return 1;
     }
 
@@ -21,8 +21,11 @@ int main(int argc, char* argv[]) {
     server.sin_port = htons(PORT);
     inet_pton(AF_INET, server_ip.c_str(), &server.sin_addr);
 
-    connect(sock, (sockaddr*)&server, sizeof(server));
-    send(sock, name.c_str(), name.size(), 0);
+        if (connect(sock, (sockaddr*)&server, sizeof(server)) < 0) {
+        perror("Connect failed");
+        close(sock);
+        return 1;
+    }
 
     char buffer[1024] = {0};
     read(sock, buffer, sizeof(buffer) - 1);
