@@ -23,9 +23,9 @@
 
 ![C++ after mutex](screenshots/cpp_after_mutex.png)
 
-- Expected score after 20 total client requests:
-- Actual score:
-- What changed after adding mutex:
+- Expected score after 20 total client requests: 20
+- Actual score: 20
+- What changed after adding mutex: Adding a mutex serializes access to the critical section (reading, incrementing, and updating the shared score) so only one thread/request updates it at a time. Instead of concurrent requests overwriting each other and collapsing to 1 (as in cpp_before), updates no longer get lost and the score properly progresses up to 20. (Notice also that the score jumps by more than 1 between some lines—such as 2 to 4 or 9 to 15—because multiple requests were processed across the run and output lines appeared asynchronously while the shell prompt returned early.)
 
 ---
 
@@ -33,9 +33,9 @@
 
 ![Java before synchronized](screenshots/java_before_synchronized.png)
 
-- Expected score after 20 total client requests:
-- Actual score:
-- What happened:
+- Expected score after 20 total client requests: 20
+- Actual score: 24
+- What happened: Because the code is in java_before (without synchronized protection) and 10 clients ran concurrently in the background (&), multiple requests read the same score (23) simultaneously, incremented it to 24, and overwrote each other's work (race condition / lost updates). Eight responses repeated Score is now 23 and only one reached Score is now 24 instead of advancing cleanly for every increment.
 
 ---
 
@@ -43,9 +43,9 @@
 
 ![Java after synchronized](screenshots/java_after_synchronized.png)
 
-- Expected score after 20 total client requests:
-- Actual score:
-- What changed after adding synchronized:
+- Expected score after 20 total client requests: 20
+- Actual score: 44
+- What changed after adding synchronized: Adding synchronized enforces mutual exclusion on the critical section so only one thread updates the score at a time. Instead of duplicate scores and lost updates from race conditions (as seen in java_before), each of the 10 concurrent client requests cleanly increments the score one by one (35, 36, 37, 38, 39, 40, 41, 42, 43, 44).
 
 ---
 
