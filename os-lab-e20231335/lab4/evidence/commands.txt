@@ -1,0 +1,100 @@
+	 echo $?
+	 cat evidence/stderr.txt 
+	 echo $?
+	 cat evidence/status.txt
+	 echo $?
+	 oslab check lab4
+	 printf 'status,count\nOTHER,2\n' > data/no-match.csv
+	 cp -- data/events.csv data/changed.csv
+	 printf 'status,count\nsent,2\n' > data/no-match.csv
+	 cp -- data/events.csv data/changed.csv
+	 printf 'shipped,7\nshipped-late,99\n' >> data/changed.csv
+	 grep '^shipped,' data/no-match.csv | wc -l > evidence/edge.txt
+	 grep '^shipped,' data/changed.csv | wc -l >> evidence/edge.txt
+	 cat data/missing.csv > evidence/stdout.txt 2> evidence/stderr.txt
+	 echo $? > evidence/status.txt
+	 oslab check lab4
+	 tree
+	 cat data/missing.csv | wc -l
+	 echo $?
+	 grep '^shipped,' data/no-match.csv 
+	 echo $?
+	 oslab checkpoint lab4
+	 oslab debrief lab4
+	 cat data/events.csv data/missing.csv 2>&1 | tee evidence/challenge.txt
+	 oslab checkpoint lab4
+	 cat data/events.csv data/missing.csv > evidence/challenge.txt 2>&1
+	 cat evidence/challenge.txt
+	 grep '^shipped,' checkpoint.csv | tee evidence/checkpoint-selected.txt
+	 echo $?
+	 oslab checkpoint lab4
+	 tree
+	 pwd
+	 ls -la
+	 ls
+	 ls -la data evidence
+	 find "$HOME/oslab-work" -type f -iname '*checkpoint*.csv' -print
+	 cd ~/oslab-work/lab4
+	 oslab check lab4
+	 oslab checkpoint lab4
+	 cd ~/oslab-work/lab4
+	 ls -l data evidence
+	 mkdir -p data
+	 printf '...' > data/bridge.csv
+	 ls
+	 tree
+	 cat data/bridge.csv
+	 grep '^shipped,' data/bridge.csv | tee evidence/checkpoint-selected.txt
+	 grep '^shipped,' data/bridge.csv | wc -l > checkpoint.txt
+	 cat evidence/checkpoint-selected.txt
+	 cat checkpoint.txt
+	 cat data/bridge.csv
+	 oslab check lab4
+	 cd ~/oslab-work/lab4
+	 cat -A data/bridge.csv
+	 grep '^shipped,' data/bridge.csv | tee evidence/checkpoint-selected.txt
+	 grep '^shipped,' data/bridge.csv | wc -l > checkpoint.txt
+	 cat evidence/checkpoint-selected.txt
+	 cat checkpoint.txt
+	 oslab check lab4
+	 grep '^shipped,' data/bridge.csv | tee evidence/checkpoint-selected.txt
+	 grep '^shipped,' data/bridge.csv | wc -l > checkpoint.txt
+	 cat evidence/checkpoint-selected.txt
+	 cat checkpoint.txt
+	 oslab check lab4
+	 printf 'status,count\nsent,7\nshipped,13\nshipped-late,77\nshipped,11\nnot-shipped,50\n' > data/bridge.csv
+	 grep '^shipped,' data/bridge.csv > evidence/checkpoint-selected.txt
+	 grep '^shipped,' data/bridge.csv | wc -l > checkpoint.txt
+	 cat data/bridge.csv
+	 cat evidence/checkpoint-selected.txt
+	 cat checkpoint.txt
+	 oslab check lab4
+	 mkdir -p "$HOME/os-gic-e20231335/os-lab-e20231335/lab4/evidence"
+	 cp -- evidence/*.txt "$HOME/os-gic-e20231335/os-lab-e20231335/lab4/evidence/"
+	 cp -- checkpoint.txt "$HOME/os-gic-e20231335/os-lab-e20231335/lab4/"
+	 cd ../..
+	 tree
+	 ls
+	 cd os-gic-e20231335/
+	 ls
+	 cd os-lab-e20231335/lab4
+	 ls
+	 nano README.md
+	 cd ../../..
+	 pwd
+	 cd os-gic-e20231335/
+	 git add os-lab-e20231335/lab4
+	 git commit -m "lab4"
+	 git push 
+	 cd ..
+	 cd oslab-work/
+	 cd lab4
+	 tree
+	 fc -ln -30 > evidence/commands.txt
+	 cat evidence/commands.txt 
+	 tree
+	 rm evidence/commands.txt 
+	 tree
+	 fc -ln -100 > evidence/commands.txt
+	 cat evidence/commands.txt 
+	 rm evidence/commands.txt 
